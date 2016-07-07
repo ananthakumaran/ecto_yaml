@@ -13,7 +13,7 @@ defmodule EctoYaml do
 
   def dump(map_or_list) when is_map(map_or_list) or is_list(map_or_list) do
     case Poison.encode(map_or_list) do
-      {:ok, encoded} -> {:ok, encoded}
+      {:ok, encoded} -> {:ok, "---\n" <> encoded}
     end
   end
   def dump(_), do: :error

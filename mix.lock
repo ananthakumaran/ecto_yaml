@@ -1,9 +1,11 @@
-%{"connection": {:hex, :connection, "1.0.3", "3145f7416be3df248a4935f24e3221dc467c1e3a158d62015b35bd54da365786", [:mix], []},
-  "db_connection": {:hex, :db_connection, "1.0.0-rc.3", "d9ceb670fe300271140af46d357b669983cd16bc0d01206d7d3222dde56cf038", [:mix], [{:sbroker, "~> 1.0.0-beta.3", [hex: :sbroker, optional: true]}, {:poolboy, "~> 1.5", [hex: :poolboy, optional: true]}, {:connection, "~> 1.0.2", [hex: :connection, optional: false]}]},
-  "decimal": {:hex, :decimal, "1.1.2", "79a769d4657b2d537b51ef3c02d29ab7141d2b486b516c109642d453ee08e00c", [:mix], []},
-  "ecto": {:hex, :ecto, "2.0.2", "b02331c1f20bbe944dbd33c8ecd8f1ccffecc02e344c4471a891baf3a25f5406", [:mix], [{:poison, "~> 1.5 or ~> 2.0", [hex: :poison, optional: true]}, {:sbroker, "~> 1.0-beta", [hex: :sbroker, optional: true]}, {:mariaex, "~> 0.7.7", [hex: :mariaex, optional: true]}, {:postgrex, "~> 0.11.2", [hex: :postgrex, optional: true]}, {:db_connection, "~> 1.0-rc.2", [hex: :db_connection, optional: true]}, {:decimal, "~> 1.0", [hex: :decimal, optional: false]}, {:poolboy, "~> 1.5", [hex: :poolboy, optional: false]}]},
-  "mariaex": {:hex, :mariaex, "0.7.7", "620a636ec2276c3fa031ac528039fc9d2bf7992e050e37a56b3c796511e94d6d", [:mix], [{:db_connection, "~> 1.0.0-rc", [hex: :db_connection, optional: false]}, {:decimal, "~> 1.0", [hex: :decimal, optional: false]}]},
-  "poison": {:hex, :poison, "2.2.0", "4763b69a8a77bd77d26f477d196428b741261a761257ff1cf92753a0d4d24a63", [:mix], []},
-  "poolboy": {:hex, :poolboy, "1.5.1", "6b46163901cfd0a1b43d692657ed9d7e599853b3b21b95ae5ae0a777cf9b6ca8", [:rebar], []},
-  "yamerl": {:git, "https://github.com/yakaz/yamerl.git", "ae810a808817d9482b4628ae3e20d746e3729fe0", []},
-  "yaml_elixir": {:hex, :yaml_elixir, "1.2.0", "6b7a1d82f00d536831f5f1dfa2aad4f71138059336e513efefdb5f9c20ddb281", [:mix], []}}
+%{
+  "connection": {:hex, :connection, "1.0.4", "a1cae72211f0eef17705aaededacac3eb30e6625b04a6117c1b2db6ace7d5976", [:mix], [], "hexpm"},
+  "db_connection": {:hex, :db_connection, "1.1.3", "89b30ca1ef0a3b469b1c779579590688561d586694a3ce8792985d4d7e575a61", [:mix], [{:connection, "~> 1.0.2", [hex: :connection, repo: "hexpm", optional: false]}, {:poolboy, "~> 1.5", [hex: :poolboy, repo: "hexpm", optional: true]}, {:sbroker, "~> 1.0", [hex: :sbroker, repo: "hexpm", optional: true]}], "hexpm"},
+  "decimal": {:hex, :decimal, "1.5.0", "b0433a36d0e2430e3d50291b1c65f53c37d56f83665b43d79963684865beab68", [:mix], [], "hexpm"},
+  "ecto": {:hex, :ecto, "2.2.10", "e7366dc82f48f8dd78fcbf3ab50985ceeb11cb3dc93435147c6e13f2cda0992e", [:mix], [{:db_connection, "~> 1.1", [hex: :db_connection, repo: "hexpm", optional: true]}, {:decimal, "~> 1.2", [hex: :decimal, repo: "hexpm", optional: false]}, {:mariaex, "~> 0.8.0", [hex: :mariaex, repo: "hexpm", optional: true]}, {:poison, "~> 2.2 or ~> 3.0", [hex: :poison, repo: "hexpm", optional: true]}, {:poolboy, "~> 1.5", [hex: :poolboy, repo: "hexpm", optional: false]}, {:postgrex, "~> 0.13.0", [hex: :postgrex, repo: "hexpm", optional: true]}, {:sbroker, "~> 1.0", [hex: :sbroker, repo: "hexpm", optional: true]}], "hexpm"},
+  "mariaex": {:hex, :mariaex, "0.8.4", "5dd42a600c3949ec020cfac162a815115c9e9e406abffc1b14ffdc611d6f84bc", [:mix], [{:db_connection, "~> 1.1", [hex: :db_connection, repo: "hexpm", optional: false]}, {:decimal, "~> 1.0", [hex: :decimal, repo: "hexpm", optional: false]}, {:poison, ">= 0.0.0", [hex: :poison, repo: "hexpm", optional: true]}], "hexpm"},
+  "poison": {:hex, :poison, "2.2.0", "4763b69a8a77bd77d26f477d196428b741261a761257ff1cf92753a0d4d24a63", [:mix], [], "hexpm"},
+  "poolboy": {:hex, :poolboy, "1.5.1", "6b46163901cfd0a1b43d692657ed9d7e599853b3b21b95ae5ae0a777cf9b6ca8", [:rebar], [], "hexpm"},
+  "yamerl": {:hex, :yamerl, "0.7.0", "e51dba652dce74c20a88294130b48051ebbbb0be7d76f22de064f0f3ccf0aaf5", [:rebar3], [], "hexpm"},
+  "yaml_elixir": {:hex, :yaml_elixir, "2.1.0", "79ec163e0f379dadf4b0e8b5162567dc1feb96c3cfa793105869e2c616ab4342", [:mix], [{:yamerl, "~> 0.7", [hex: :yamerl, repo: "hexpm", optional: false]}], "hexpm"},
+}

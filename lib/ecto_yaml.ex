@@ -16,13 +16,12 @@ defmodule EctoYaml do
       {:ok, encoded} -> {:ok, "---\n" <> encoded}
     end
   end
+
   def dump(_), do: :error
 
   defp parse_yaml(string) do
-    try do
-      yaml = YamlElixir.read_from_string(string)
-      {:ok, yaml}
-    catch
+    case YamlElixir.read_from_string(string) do
+      {:ok, yaml} -> {:ok, yaml}
       _ -> :error
     end
   end

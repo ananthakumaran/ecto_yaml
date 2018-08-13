@@ -7,7 +7,7 @@ defmodule EctoYamlTest do
     use Ecto.Schema
 
     schema "users" do
-      field :history, :string
+      field(:history, :string)
     end
   end
 
@@ -15,7 +15,7 @@ defmodule EctoYamlTest do
     use Ecto.Schema
 
     schema "users" do
-      field :history, EctoYaml
+      field(:history, EctoYaml)
     end
   end
 
@@ -48,12 +48,26 @@ defmodule EctoYamlTest do
     assert_cast(%{"number" => 1}, %{"number" => 1})
     assert_cast("---\n- hello\n- world", ["hello", "world"])
 
+    list = """
+    ---
+    - Transaction ID
+    - Transaction Time
+    - Order ID
+    - Payment Type
+    """
+
+    assert_cast(list, ["Transaction ID", "Transaction Time", "Order ID", "Payment Type"])
+
     yaml = """
----
-- '{"no":1,"time":"2016-07-04T09:28:09.351Z","delivered":false,"reason":null,"exception_message":null}'
-- '{"no":2,"time":"2016-07-04T09:28:27.504Z","delivered":false,"reason":null,"exception_message":null}'
-"""
-    decoded = [~s({"no":1,"time":"2016-07-04T09:28:09.351Z","delivered":false,"reason":null,"exception_message":null}), ~s({"no":2,"time":"2016-07-04T09:28:27.504Z","delivered":false,"reason":null,"exception_message":null})]
+    ---
+    - '{"no":1,"time":"2016-07-04T09:28:09.351Z","delivered":false,"reason":null,"exception_message":null}'
+    - '{"no":2,"time":"2016-07-04T09:28:27.504Z","delivered":false,"reason":null,"exception_message":null}'
+    """
+
+    decoded = [
+      ~s({"no":1,"time":"2016-07-04T09:28:09.351Z","delivered":false,"reason":null,"exception_message":null}),
+      ~s({"no":2,"time":"2016-07-04T09:28:27.504Z","delivered":false,"reason":null,"exception_message":null})
+    ]
 
     assert_cast(yaml, decoded)
 

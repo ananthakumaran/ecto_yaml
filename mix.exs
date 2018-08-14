@@ -20,7 +20,7 @@ defmodule EctoYaml.Mixfile do
     [
       {:ecto, "~> 2.0"},
       {:yaml_elixir, "~> 2.0"},
-      {:poison, "~> 2.0"},
+      {:poison, "~> 2.0 or ~> 3.0"},
       {:mariaex, "~> 0.7", only: :test}
     ]
   end

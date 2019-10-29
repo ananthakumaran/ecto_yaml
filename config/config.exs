@@ -4,5 +4,5 @@ config :ecto_yaml, EctoYaml.TestRepo,
   adapter: Ecto.Adapters.MyXQL,
   database: "ecto_yaml",
   username: "root",
-  password: "sqlsecret",
+  password: System.get_env("SQL_PASSWORD", "sqlsecret"),
   hostname: "localhost"

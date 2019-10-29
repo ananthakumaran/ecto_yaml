@@ -1,26 +1,14 @@
 ExUnit.start()
 
-alias EctoYaml.TestRepo
-
-db_config = [
-  adapter: Ecto.Adapters.MySQL,
-  database: "ecto_yaml",
-  username: "root",
-  password: "sqlsecret",
-  hostname: "localhost"
-]
-
-Application.put_env(:ecto_yaml, TestRepo, db_config)
-
-defmodule EctoYaml.TestRepo do
-  use Ecto.Repo, otp_app: :ecto_yaml
+for app <- [:ecto, :ecto_sql] do
+  {:ok, _} = Application.ensure_all_started(app)
 end
 
-{:ok, _} = Ecto.Registry.start_link()
-_ = Ecto.Adapters.MySQL.storage_down(db_config)
-:ok = Ecto.Adapters.MySQL.storage_up(db_config)
+db_config = Application.get_env(:ecto_yaml, EctoYaml.TestRepo)
+_ = Ecto.Adapters.MyXQL.storage_down(db_config)
+:ok = Ecto.Adapters.MyXQL.storage_up(db_config)
 
-{:ok, _pid} = TestRepo.start_link()
+{:ok, _pid} = EctoYaml.TestRepo.start_link()
 
 defmodule EctoYaml.Migration do
   use Ecto.Migration
@@ -32,6 +20,5 @@ defmodule EctoYaml.Migration do
   end
 end
 
-Ecto.Migration.Supervisor.start_link()
-:ok = Ecto.Migrator.up(TestRepo, 0, EctoYaml.Migration, log: false)
+:ok = Ecto.Migrator.up(EctoYaml.TestRepo, 0, EctoYaml.Migration, log: false)
 Process.flag(:trap_exit, true)
